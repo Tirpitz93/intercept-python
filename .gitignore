@@ -296,3 +296,9 @@ __pycache__/
 
 # Cmake build folders
 vcproj*/
+
+# idea/pycharm/clion
+
+.idea
+.idea/*
+*__pycache__*
