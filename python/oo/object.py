@@ -1,6 +1,16 @@
+__author__ = "Lonja Selter"
 
+"""
+Base ingame object wrapper
+provides pythonic interface to SQF engine
 
-class RV_object(object):
+get_<propertyName>() is available as obj.<propertyName>
+set_<propertName>(val) is available as obj.<propertyname> = val
+
+todo: possibly add literal methods eg "get_pos()" as well as @property variants, the docorated methods seams cleaner and therefor more pythonic.
+"""
+
+class RV_Object(object): # todo: rename according to conventions???
     def __init__(self):
         # todo
         ## aliases
@@ -24,7 +34,7 @@ class RV_object(object):
     # def set_pos(self, pos:tuple)->None: pass # todo
 
     @property
-    def pos_asl(self)->tuple:pass
+    def pos_asl(self)->tuple:pass # todo
 
     @pos_asl.setter
     def pos_asl(self, pos:tuple)->tuple:pass
