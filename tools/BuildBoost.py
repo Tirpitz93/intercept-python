@@ -71,11 +71,11 @@ def build(boostPath, pythonPath, architecture, buildDebug, buildRelease):
     try:
         os.remove(configPath)  # Remove old config
     except OSError:
-        pass
+        raise NotImplementedError
     try:
         shutil.rmtree('./stage')  # Remove old stage
     except OSError:
-        pass
+        raise NotImplementedError
     shutil.copyfile(os.path.join(boostPath, 'tools', 'build', 'example', 'user-config.jam'),
                     configPath)  # Grab the config template and copy it
 
