@@ -1,3 +1,5 @@
+from abc import ABC
+
 __author__ = "Lonja Selter"
 """
 Base ingame object wrapper
@@ -9,7 +11,7 @@ set_<propertName>(val) is available as obj.<propertyname> = val
 todo: possibly add literal methods eg "get_pos()" as well as @property variants, the docorated methods seams cleaner and therefor more pythonic.
 """
 from typing import Sequence
-class RV_Object(object): # todo: rename according to conventions???
+class RV_Object(ABC): # todo: rename according to conventions???
     def __init__(self):
         # todo
         ## aliases

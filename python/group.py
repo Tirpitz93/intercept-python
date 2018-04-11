@@ -5,7 +5,7 @@
 
 """
 from python.object import RV_Object
-from python.unit import RV_Unit
+
 from python.definitions import RV_side
 
 class RV_Group(RV_Object):
@@ -17,11 +17,10 @@ class RV_Group(RV_Object):
         super().__init__()
         raise NotImplementedError
 
-    def add_unit(self, unit: RV_Unit)->None:raise NotImplementedError
+    def add_unit(self, unit: RV_Object)->None:raise NotImplementedError
 
     @property
-    def units(self):
-        raise NotImplementedError
+    def units(self):raise NotImplementedError
 
     @property
     def side(self)->RV_side:raise NotImplementedError
@@ -29,4 +28,5 @@ class RV_Group(RV_Object):
     @side.setter
     def side(self, side:RV_side)->None: raise NotImplementedError
 
-    def remove_unit(self, unit:RV_Unit)->None:raise NotImplementedError
+    def remove_unit(self, unit:RV_Object)->None:raise NotImplementedError
+
