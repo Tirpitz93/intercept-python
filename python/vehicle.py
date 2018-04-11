@@ -1,3 +1,15 @@
+# coding=utf-8
+"""
+    Vehicle object api.
+    wishlist:
+        get_passengers
+        get_driver
+        get_gunner/get_gunners
+        get_inventory/set_inventory
+
+
+"""
+
 from typing import Sequence
 
 from python.object import RV_Object
@@ -20,4 +32,4 @@ class RV_Vehicle(RV_Unit):
 
     def rope_create(self, from_point, to_obj, to_point, segments, length:float=None)->RV_Object:raise NotImplementedError # todo
 
-    def is_engine_on(self)->bool:raise NotImplementedError # todo should this be a property with which you can set motor on/off
+    def is_engine_on(self)->bool:raise NotImplementedError # todo should this be a property with which you can set motor on/off?
