@@ -1,4 +1,6 @@
-from abc import ABC
+
+
+from .rv_base import RV_Base
 
 __author__ = "Lonja Selter"
 """
@@ -11,13 +13,18 @@ set_<propertName>(val) is available as obj.<propertyname> = val
 todo: possibly add literal methods eg "get_pos()" as well as @property variants, the docorated methods seams cleaner and therefor more pythonic.
 """
 from typing import Sequence
-class RV_Object(ABC): # todo: rename according to conventions???
-    def __init__(self):
+class RV_Object(RV_Base): # todo: rename according to conventions???
+    def __init__(self, name: str, namespace: str= "missionNamespace")->None:
+        self._name = name
+        self._namespace = namespace
         # todo
         ## aliases
         self.pos_atl = self.pos  # default position is ATL
         self.position = self.pos # Position is an alias for pos
         self.set_position = self.set_pos # ditto
+    def __get__(self, instance, owner):
+        raise NotImplementedError
+        # return  self.namespace.getvariable(name)
 
 
 
@@ -89,8 +96,6 @@ class RV_Object(ABC): # todo: rename according to conventions???
     @property
     def velocity(self)->float:raise NotImplementedError  # todo
 
-    @property
-    def name(self)->str:raise NotImplementedError  # todo
 
     @property
     def type_of(self)->str:raise NotImplementedError  # todo
@@ -130,6 +135,8 @@ class RV_Object(ABC): # todo: rename according to conventions???
     @property
     def damage_allowed(self)->bool:raise NotImplementedError # todo
 
-
     @property
     def local(self)->bool:raise NotImplementedError # todo
+
+    @property
+    def variable_name(self)->str: raise NotImplementedError

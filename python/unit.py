@@ -30,11 +30,11 @@ class RV_Unit(RV_Object):
 
     def move(self, position: Sequence) -> None: raise NotImplementedError
 
-    @property
-    def variable_name(self)->str: raise NotImplementedError
+
 
     @property
     def name(self)->str:raise NotImplementedError
+
 
 
 

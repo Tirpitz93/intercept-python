@@ -6,6 +6,7 @@ class RV_Building(RV_Object):
     """
     wishlist;
     """
+
     def __init__(self):
         super().__init__()
 

@@ -5,18 +5,12 @@ Location class
 from abc import ABC
 from typing import Sequence
 
+from .marker import RV_Marker
 
-class RV_Location(ABC):
 
-    @property
-    def pos(self)->Sequence:raise NotImplementedError
-
-    @property
-    def name(self)->str:raise NotImplementedError
+class RV_Location(RV_Marker):
 
     @property
-    def size(self)-> float: raise NotImplementedError
+    def type(self)->str:raise NotImplementedError
 
-    @property
-    def bounds(self)->Sequence: raise NotImplementedError
 
