@@ -29,3 +29,12 @@ class RV_Unit(RV_Object):
     def knows_about(self, target: RV_Object) -> float: raise NotImplementedError
 
     def move(self, position: Sequence) -> None: raise NotImplementedError
+
+    @property
+    def variable_name(self)->str: raise NotImplementedError
+
+    @property
+    def name(self)->str:raise NotImplementedError
+
+
+
