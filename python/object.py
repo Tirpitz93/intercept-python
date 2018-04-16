@@ -1,6 +1,6 @@
 
 
-from .rv_base import RV_Base
+from ._rv_base import RV_Base
 
 __author__ = "Lonja Selter"
 """
@@ -13,6 +13,8 @@ set_<propertName>(val) is available as obj.<propertyname> = val
 todo: possibly add literal methods eg "get_pos()" as well as @property variants, the docorated methods seams cleaner and therefor more pythonic.
 """
 from typing import Sequence
+
+
 class RV_Object(RV_Base): # todo: rename according to conventions???
     def __init__(self, name: str, namespace: str= "missionNamespace")->None:
         self._name = name
@@ -140,3 +142,11 @@ class RV_Object(RV_Base): # todo: rename according to conventions???
 
     @property
     def variable_name(self)->str: raise NotImplementedError
+
+    @property
+    def class_name(self)->str: raise NotImplementedError
+
+    @property
+    def synced_objects(self)->Sequence:raise  NotImplementedError
+
+    def add_synced_object(self, object:RV_Base)->None: raise NotImplementedError
