@@ -12,3 +12,7 @@ __version__ = "0.1"
 __maintainer__ = "Lonja Selter"
 __email__ = "LoenjaSelter@gmail.com"
 __status__ = "Development"
+
+from .man import RV_Man
+from . import sqf
+player = sqf.player() #create module wide reference to player object

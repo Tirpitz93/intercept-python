@@ -12,10 +12,23 @@ set_<propertName>(val) is available as obj.<propertyname> = val
 
 todo: possibly add literal methods eg "get_pos()" as well as @property variants, the docorated methods seams cleaner and therefor more pythonic.
 """
-from typing import Sequence
+from typing import Sequence, Any
 
 
 class RV_Object(RV_Base): # todo: rename according to conventions???
+    """Basic ingame object.
+        >>>
+    """
+
+    def __new__(cls, name, namespace) -> Any:
+        try:
+            _ptr= sqf.misc.get_variable(namespace, name)
+        except ValueError:
+            _ptr = sqf.misc.create_unit(name, namespace, pos=[0,0,0])
+
+        return super().__new__(cls)
+
+
     def __init__(self, name: str, namespace: str= "missionNamespace")->None:
         self._name = name
         self._namespace = namespace
@@ -150,3 +163,12 @@ class RV_Object(RV_Base): # todo: rename according to conventions???
     def synced_objects(self)->Sequence:raise  NotImplementedError
 
     def add_synced_object(self, object:RV_Base)->None: raise NotImplementedError
+
+    @property
+    def dim_x(self)->float: raise NotImplementedError # returns bounding box x dimension
+
+    @property
+    def dim_y(self)->float: raise NotImplementedError # returns bounding box y dimension
+
+    @property
+    def dim_z(self)->float: raise NotImplementedError # returns bounding box z dimension
